@@ -119,7 +119,6 @@ sleep 2
 clear 
 figlet 'Tool Setup'
 cd
-cd .config
 git clone https://github.com/ArthurOxic/arxic-lab
 sleep 1
 cd 
@@ -127,7 +126,7 @@ cd /data/data/com.termux/files/usr/bin
 touch sms
 datafiles=$(cat <<EOL
 cd
-cd .config/arxic-lab
+cd arxic-lab
 python sms.py
 
 EOL
@@ -142,7 +141,7 @@ cd /data/data/com.termux/files/usr/bin
 touch photo
 datafiles=$(cat <<EOL
 cd
-cd .config/arxic-lab
+cd arxic-lab
 python photo.py
 
 EOL
@@ -157,7 +156,7 @@ cd /data/data/com.termux/files/usr/bin
 touch encrypt
 datafiles=$(cat <<EOL
 cd
-cd .config/arxic-lab
+cd arxic-lab
 python encrypt.py
 
 EOL
@@ -166,6 +165,20 @@ files="encrypt"
 echo "$datafiles" > "$files"
 echo 'Encryption Tool Ready'
 chmod +x encrypt
+
+sleep 2
+cd
+cd /data/data/com.termux/files/usr/bin 
+touch arxic
+datafiles=$(cat <<EOL
+chmod +x *
+
+EOL
+)
+files="arxic"
+echo "$datafiles" > "$files"
+echo 'Arxic Ready'
+chmod +x arxic
 sleep 2
 
 cd /data/data/com.termux/files/usr/bin 
