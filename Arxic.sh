@@ -64,7 +64,7 @@ install_packages() {
 figlet 'Package 1' | lolcat
 install_packages
 sleep 5
-figlet 'Package 1' | lolcat
+figlet 'Package 2' | lolcat
 install_packages
 echo 'Package install Successfully'
 
@@ -209,7 +209,7 @@ cd /data/data/com.termux/files/usr/bin
 touch encrypt
 datafiles=$(cat <<EOL
 cd
-cd .config/arxic-lab
+cd arxic-lab
 python encrypt.py
 
 EOL
@@ -367,6 +367,7 @@ touch arxic-bash
 datafiles=$(cat <<EOL
 #!/bin/bash
 chmod +x *
+echo "All bash Permission Done..."
 EOL
 )
 files="arxic-bash"
