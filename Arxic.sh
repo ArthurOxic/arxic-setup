@@ -1,19 +1,54 @@
 #!/bin/bash
+clear
+echo
+echo """
+  :::::::::::::::::::::::::::::::::::::::::::::::::
+  :::'###::::'########::'##::::'##:'####::'######::
+  ::'## ##::: ##.... ##:. ##::'##::. ##::'##... ##:
+  :'##:. ##:: ##:::: ##::. ##'##:::: ##:: ##:::..::
+  :##:::. ##: ########::::. ###::::: ##:: ##:::::::
+  :#########: ##.. ##::::: ## ##:::: ##:: ##:::::::
+  :##.... ##: ##::. ##::: ##:. ##::: ##:: ##::: ##:
+  :##:::: ##: ##:::. ##: ##:::. ##:'####:. ######::
+  :::::::..::..:::::..::..:::::..::....:::......:::
+
+
+"""
+echo
+
+# Setting  
 apt update -y
 apt upgrade -y
 pkg update -y
 pkg upgrade -y
 termux-setup-storage
 sleep.5
-# Package List 
+
+# This Packages For Termux Color Design 
 pkg install figlet -y
 pkg install python -y
 pip install lolcat
 sleep 3
-# Function to install the packages
-figlet 'Package' | lolcat 
+
+# All Package Is Install In Here 
+clear
+echo """
+  :::::::::::::::::::::::::::::::::::::::::::::::::
+  :::'###::::'########::'##::::'##:'####::'######::
+  ::'## ##::: ##.... ##:. ##::'##::. ##::'##... ##:
+  :'##:. ##:: ##:::: ##::. ##'##:::: ##:: ##:::..::
+  :##:::. ##: ########::::. ###::::: ##:: ##:::::::
+  :#########: ##.. ##::::: ## ##:::: ##:: ##:::::::
+  :##.... ##: ##::. ##::: ##:. ##::: ##:: ##::: ##:
+  :##:::: ##: ##:::. ##: ##:::. ##:'####:. ######::
+  :::::::..::..:::::..::..:::::..::....:::......:::
+
+
+"""|lolcat
+echo
+# A Function That Allow To install The Package and PIP
 install_packages() {
-    echo 'Processing to install the package'
+    echo 'All Package & PIP Install '
     sleep 5
     pkg install python3 -y
     pkg install git -y
@@ -25,61 +60,14 @@ install_packages() {
     pip install subprocess.run
     pip install colorama
 }
+# All Package & PIP install Twice
+figlet 'Package 1' | lolcat
 install_packages
 sleep 5
+figlet 'Package 1' | lolcat
 install_packages
 echo 'Package install Successfully'
-sleep 1
-# Termux Extra Key Adding 
-clear
-figlet 'Extra Key'| lolcat
-cd
-cd .termux
-rm -r termux.properties
-filename1="termux.properties"
-insults1=(
-    "extra-keys = [ \
-    ['CTRL','cd ','rm ','━━','㉿','━━','TAB','UP', 'ls '], \
-    [{key: KEYBOARD, popup: DRAWER},'{}', '-', '[]', '.py', '/', 'LEFT', 'DOWN', 'RIGHT'] \
-]")
-touch $filename1
-for insult in "${insults1[@]}"; do
-    echo $insults1 >> $filename1
-done
-sleep 1
-echo "Extra Key Adding is complete"
-sleep 2
 
-
-#Termux Interface
-clear
-figlet 'InterFace'| lolcat
-cd
-cd ..
-cd usr/etc
-rm -r bash.bashrc
-rm -r motd
-filenames="motd"
-touch $filenames
-filename="bash.bashrc"
-insults=(
-    "clear"
-    "figlet ' ARX Script '| lolcat"
-    "echo"
-    "PS1='\[\e[1;40m\]┏━[\[\e[1;36m\]Arxic\[\e[1;40m\]]━━[\[\e[1;32m\]\w\[\e[0m\]\[\e[0;97m\]\[\e[1;40m\]]
-\n┗━>\[\e[0m\] \[\e[1;40m\]'"
-    "cd /sdcard/termux-files"
-    "exa --icons --group-directories-first"
-)
-touch $filename
-echo "#!/data/data/com.termux/files/usr/bin/bash" >> $filename
-for insult in "${insults[@]}"; do
-    echo $insult >> $filename
-done
-chmod +x $filename
-sleep 1
-echo " Termux PS4 Customized Successfully"
-sleep 2
 
 
 # Termux Icon Adding 
@@ -115,12 +103,72 @@ echo ' Icon Added Successfully'
 sleep 2
 
 
-
+# GitHub Cloning Termux Tool 
 clear 
 figlet 'Tool Setup'
 cd
 git clone https://github.com/ArthurOxic/arxic-lab
 sleep 1
+
+# For All Offline Setup Will Active 
+
+# Termux Extra Key & PS1
+clear
+echo
+echo """
+           █████╗ ██████╗ ██╗  ██╗██╗ ██████╗
+          ██╔══██╗██╔══██╗╚██╗██╔╝██║██╔════╝
+          ███████║██████╔╝ ╚███╔╝ ██║██║     
+          ██╔══██║██╔══██╗ ██╔██╗ ██║██║     
+          ██║  ██║██║  ██║██╔╝ ██╗██║╚██████╗
+          ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝
+"""|lolcat
+echo
+cd
+cd ..
+cd usr/etc
+rm -r bash.bashrc
+rm -r motd
+filenames="motd"
+touch $filenames
+filename="bash.bashrc"
+insults=(
+    "clear"
+    "figlet ' ARX Script '| lolcat"
+    "echo"
+    "PS1='\[\e[1;40m\]┏━[\[\e[1;36m\]Arxic\[\e[1;40m\]]━━[\[\e[1;32m\]\w\[\e[0m\]\[\e[0;97m\]\[\e[1;40m\]]
+\n┗━>\[\e[0m\] \[\e[1;40m\]'"
+   
+    "exa --icons --group-directories-first"
+)
+touch $filename
+echo "#!/data/data/com.termux/files/usr/bin/bash" >> $filename
+for insult in "${insults[@]}"; do
+    echo $insult >> $filename
+done
+chmod +x $filename
+sleep 1
+echo "  [•] Termux PS4 Customized Successfully"
+sleep 2
+cd
+cd .termux
+rm -r termux.properties
+filename1="termux.properties"
+insults1=(
+    "extra-keys = [ \
+    ['CTRL','cd ','rm ','━━','㉿','━━','TAB','UP', 'ls '], \
+    [{key: KEYBOARD, popup: DRAWER},'{}', '-', '[]', '.py', '/', 'LEFT', 'DOWN', 'RIGHT'] \
+]")
+touch $filename1
+for insult in "${insults1[@]}"; do
+    echo $insults1 >> $filename1
+done
+sleep 1
+echo "  [•] Extra Key Adding is complete"
+sleep 2
+
+
+# Automatic SMS 
 cd 
 cd /data/data/com.termux/files/usr/bin 
 touch sms
@@ -136,6 +184,8 @@ echo "$datafiles" > "$files"
 chmod +x sms
 echo 'SMS-BOMBER ready'
 sleep 2
+
+# Automatic Photo
 cd
 cd /data/data/com.termux/files/usr/bin 
 touch photo
@@ -151,12 +201,15 @@ echo "$datafiles" > "$files"
 chmod +x photo
 echo 'Hide Photo taker in ready '
 sleep 2
+
+
+# Automatica Encryption 
 cd
 cd /data/data/com.termux/files/usr/bin 
 touch encrypt
 datafiles=$(cat <<EOL
 cd
-cd arxic-lab
+cd .config/arxic-lab
 python encrypt.py
 
 EOL
@@ -165,26 +218,31 @@ files="encrypt"
 echo "$datafiles" > "$files"
 echo 'Encryption Tool Ready'
 chmod +x encrypt
-
 sleep 2
+
+# Delete Tool
 cd
 cd /data/data/com.termux/files/usr/bin 
-touch arxic
-datafiles=$(cat <<EOL
-chmod +x *
-
-EOL
-)
-files="arxic"
-echo "$datafiles" > "$files"
-echo 'Arxic Ready'
-chmod +x arxic
-sleep 2
-
-cd /data/data/com.termux/files/usr/bin 
-touch override
+touch arxic-delete
 datafiles=$(cat <<EOL
 #!/bin/bash
+clear
+echo
+echo """
+           █████╗ ██████╗ ██╗  ██╗██╗ ██████╗
+          ██╔══██╗██╔══██╗╚██╗██╔╝██║██╔════╝
+          ███████║██████╔╝ ╚███╔╝ ██║██║     
+          ██╔══██║██╔══██╗ ██╔██╗ ██║██║     
+          ██║  ██║██║  ██║██╔╝ ██╗██║╚██████╗
+          ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝
+"""|lolcat
+echo
+echo " [•] Termux All Set Will Be Deleted"
+echo 
+
+
+
+
 pkg uninstall exa
 pkg uninstall lsd 
 pkg uninstall python-cryptography
@@ -198,71 +256,187 @@ cd
 cd .termux
 rm -r termux.properties
 cd 
-cd .config
-rm -r script
+rm -r arxic-lab
 cd
 cd /data/data/com.termux/files/usr/bin 
-rm -r sms photo encrypt arx override
+rm -r sms photo encrypt arxic-delete arxic-help arxic-banner arxic-updata arxic-bash 
+
+
 
 EOL
 )
-files="override"
+files="arxic-delete"
 echo "$datafiles" > "$files"
-echo 'Termux Reset setup'
-chmod +x override
+echo 'Termux Delete Tool'
+chmod +x arxic-delete
 sleep 2
 
 
 
-#Termux Help Arxic
+# Termux Arxic Tool Help Command 
 cd
 cd /data/data/com.termux/files/usr/bin 
-touch arx
+touch arxic-help
 datafiles=$(cat <<EOL
+#!/bin/bash
 clear
-figlet 'ARX Script' | lolcat
-
-echo ' You Termux Is Ready Work'|lolcat
-echo ' I have install Some Package '|lolcat
-echo ' Python pip install some'|lolcat
-echo ' Your Termux Looks Change it'|lolcat
-echo ' SMS-BOMBER Tool Active'|lolcat
-echo ' Hide way Photo is Active'|lolcat
-echo ' Python Script Encryption is Active'|lolcat
 echo
-echo "######### Modification ##########"|lolcat
-echo ' Type override for delete all the modification'|lolcat
-echo ' Type sms for SMS Bombing'|lolcat
-echo ' Type Photo for Photo Taking'|lolcat
-echo ' Type encrypt For encryption Python Script'|lolcat
-echo ' Type arxic for Connect Me'|lolcat
-echo ' Type arx for help'|lolcat
+echo """
+           █████╗ ██████╗ ██╗  ██╗██╗ ██████╗
+          ██╔══██╗██╔══██╗╚██╗██╔╝██║██╔════╝
+          ███████║██████╔╝ ╚███╔╝ ██║██║     
+          ██╔══██║██╔══██╗ ██╔██╗ ██║██║     
+          ██║  ██║██║  ██║██╔╝ ██╗██║╚██████╗
+          ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝
+"""|lolcat
 echo
+echo """
+[•] sms :-- SMS Bombing 
+[•] photo :-- Photo Taking 
+[•] encrypt :-- Python files Encryption
+[•] arxic-help :-- How too use the Tool
+[•] arxic-delete :-- Delete the Tool
+[•] arxic-banner :-- Adding name banner and PS4
+[•] arxic-bash :-- Bash script permission
+[•] arxic-updata :-- Termux All Package Update
+"""
 
 EOL
 )
-files="arx"
+files="arxic-help"
 echo "$datafiles" > "$files"
-chmod +x arx
-echo 'Termux help setup'
-
+chmod +x arxic-help
+echo 'Termux Help For Arxic Tool Setup'
 sleep 3
-clear
-figlet 'ARX Script' | lolcat
 
-echo ' You Termux Is Ready Work'|lolcat
-echo ' I have install Some Package '|lolcat
-echo ' Python pip install some'|lolcat
-echo ' Your Termux Looks Change it'|lolcat
-echo ' SMS-BOMBER Tool Active'|lolcat
-echo ' Hide way Photo is Active'|lolcat
-echo ' Python Script Encryption is Active'|lolcat
+
+
+# Termux Banner Name adding tool
+cd
+cd /data/data/com.termux/files/usr/bin 
+touch arxic-banner
+datafiles=$(cat <<EOL
+#!/bin/bash
+clear
 echo
-echo "######### Modification ##########"|lolcat
-echo ' Type override for delete all the modification'|lolcat
-echo ' Type sms for SMS Bombing'|lolcat
-echo ' Type Photo for Photo Taking'|lolcat
-echo ' Type encrypt For encryption Python Script'|lolcat
-echo ' Type arxic for Connect Me'|lolcat
-echo ' Type arx for help'|lolcat
+echo """
+           █████╗ ██████╗ ██╗  ██╗██╗ ██████╗
+          ██╔══██╗██╔══██╗╚██╗██╔╝██║██╔════╝
+          ███████║██████╔╝ ╚███╔╝ ██║██║     
+          ██╔══██║██╔══██╗ ██╔██╗ ██║██║     
+          ██║  ██║██║  ██║██╔╝ ██╗██║╚██████╗
+          ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝
+"""|lolcat
 echo
+echo " [•] Banner will be added you termux Back"
+echo
+
+cd
+cd ..
+cd usr/etc
+rm -r bash.bashrc
+rm -r motd
+filenames="motd"
+touch $filenames
+filename="bash.bashrc"
+touch $filename
+echo "#!/data/data/com.termux/files/usr/bin/bash" >> $filename
+echo "clear">> $filename
+echo "echo">> $filename
+read -p " [?] Enter a banner name : " input
+echo "figlet '$input' | lolcat" >>$filename
+
+
+read -p " [?] Enter a username : " input
+echo "PS1='\[\e[1;40m\]┏━[\[\e[1;36m\]$input\[\e[1;40m\]]━━[\[\e[1;32m\]\w\[\e[0m\]\[\e[0;97m\]\[\e[1;40m\]]\n┗━>\[\e[0m\] \[\e[1;40m\]'" >>$filename
+echo "exa --icons --group-directories-first">> $filename
+
+EOL
+)
+files="arxic-banner"
+echo "$datafiles" > "$files"
+echo 'Termux Banner change Tool setup'
+chmod +x arxic-banner
+sleep 2
+
+
+# Termux All Bash Script Permission 
+cd
+cd /data/data/com.termux/files/usr/bin 
+touch arxic-bash
+datafiles=$(cat <<EOL
+#!/bin/bash
+chmod +x *
+EOL
+)
+files="arxic-bash"
+echo "$datafiles" > "$files"
+echo 'Bash Script permission Tool Set'
+chmod +x arxic-bash
+sleep 2
+
+
+# Termux Update Tool Setup
+cd
+cd /data/data/com.termux/files/usr/bin 
+touch arxic-updata
+datafiles=$(cat <<EOL
+#!/bin/bash
+clear
+echo
+echo """
+           █████╗ ██████╗ ██╗  ██╗██╗ ██████╗
+          ██╔══██╗██╔══██╗╚██╗██╔╝██║██╔════╝
+          ███████║██████╔╝ ╚███╔╝ ██║██║     
+          ██╔══██║██╔══██╗ ██╔██╗ ██║██║     
+          ██║  ██║██║  ██║██╔╝ ██╗██║╚██████╗
+          ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝
+"""|lolcat
+echo
+
+#!/bin/bash
+read -p " [?] Do you want to update all packages? (y/n) " response
+
+if [ "$response" == "y" ]; then
+  echo "Updating packages..."
+  apt update
+  apt upgrade
+  echo "Packages updated successfully."
+elif [ "$response" == "n" ]; then
+  echo " [•] Package update skipped."
+else
+  echo " [•] Invalid input. Please type y/n "
+fi
+ 
+EOL
+)
+files="arxic-updata"
+echo "$datafiles" > "$files"
+echo 'Termux Update Tool Set '
+chmod +x arxic-updata
+sleep 2
+
+
+
+# Show | Everything is Set
+clear
+echo
+echo """
+           █████╗ ██████╗ ██╗  ██╗██╗ ██████╗
+          ██╔══██╗██╔══██╗╚██╗██╔╝██║██╔════╝
+          ███████║██████╔╝ ╚███╔╝ ██║██║     
+          ██╔══██║██╔══██╗ ██╔██╗ ██║██║     
+          ██║  ██║██║  ██║██╔╝ ██╗██║╚██████╗
+          ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝
+"""|lolcat
+echo
+echo """
+[•] sms :-- SMS Bombing 
+[•] photo :-- Photo Taking 
+[•] encrypt :-- Python files Encryption
+[•] arxic-help :-- How too use the Tool
+[•] arxic-delete :-- Delete the Tool
+[•] arxic-banner :-- Adding name banner and PS4
+[•] arxic-bash :-- Bash script permission
+[•] arxic-updata :-- Termux All Package Update
+"""
